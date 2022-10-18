@@ -15,7 +15,7 @@ struct stack {
     unsigned size;
 };
 
-extern STACK newStack(unsigned size);
+extern STACK constructStack(unsigned size);
 extern bool isEmpty(STACK stack);
 extern TREE pop(STACK stack);
 extern void push(STACK stack, TREE node);

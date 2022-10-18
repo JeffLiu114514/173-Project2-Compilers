@@ -105,10 +105,10 @@ TREE makeNode4(char *x, TREE t1, TREE t2, TREE t3, TREE t4) {
 TREE B() {
     if (lookahead('0')) {//production1
         if (!match('0')) return FAILED;
-        return makeNode0("B");
+        return makeNode1("B", makeNode0("0"));
     } else {//production2
         if (!match('1')) return FAILED;
-        return makeNode0("B");
+        return makeNode1("B", makeNode0("1"));
     }
 }
 

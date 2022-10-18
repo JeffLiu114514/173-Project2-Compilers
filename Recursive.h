@@ -1,11 +1,14 @@
 #ifndef CSC173PROJECT2_TREE_H
 #define CSC173PROJECT2_TREE_H
+#include <stdbool.h>
 typedef struct NODE *TREE;
 struct NODE {
     char* label;
     TREE leftmostChild, rightSibling;
 };
 
+extern bool lookahead(char c);
+extern bool match(char c);
 extern TREE makeNode0(char* x);
 extern TREE makeNode1(char* x, TREE t);
 extern TREE makeNode2(char* x, TREE t1, TREE t2);

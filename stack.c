@@ -1,9 +1,7 @@
-//
-// Created by 23566 on 2022/10/17.
-//
+
 #include "stack.h"
 
-STACK newStack(unsigned size){
+STACK constructStack(unsigned size){
     STACK stack = (STACK)malloc(sizeof(STACK));
     stack->content = (TREE*)malloc(stack->size * sizeof(TREE));
     stack->top = -1;

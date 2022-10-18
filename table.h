@@ -16,6 +16,6 @@ struct table {
 
 extern TABLE newTable();
 extern TREE parse(char* input, TABLE table);
-extern void buildStack(int step, STACK stack, char input, TREE tree);
-extern int findIndex(TABLE parse_table, char character, int currentValue);
+extern void buildStack(int production, STACK stack, char input, TREE tree);
+extern int findIndex(TABLE table, char c, int row);
 #endif //INC_173PROJ2_TABLE_H
