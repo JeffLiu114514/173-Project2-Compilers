@@ -1,7 +1,3 @@
-//
-// Created by 23566 on 2022/10/17.
-//
-
 #ifndef INC_173PROJ2_STACK_H
 #define INC_173PROJ2_STACK_H
 #include <stdlib.h>

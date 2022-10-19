@@ -46,6 +46,6 @@ void Table_Driven_parser(){
 }
 
 int main(){
-    //Recursive_Descent_parser();
+    Recursive_Descent_parser();
     Table_Driven_parser();
 }

@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/23566/CLionProjects/173proj2/cmake-build-debug"
+			"value" : "C:/Users/23566/CLionProjects/173Proj2/cmake-build-debug"
 		},
 		{
 			"name" : "173Proj2_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/23566/CLionProjects/173proj2"
+			"value" : "C:/Users/23566/CLionProjects/173Proj2"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/23566/CLionProjects/173proj2/cmake-build-debug"
+			"value" : "c:/Users/23566/CLionProjects/173Proj2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",

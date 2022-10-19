@@ -26,22 +26,11 @@ bool match(char c) {
     }
 }
 
-//void free_tree(TREE root){
-//    if(root->leftmostChild != NULL){
-//        free_tree(root->leftmostChild);
-//    }
-//    if(root->rightSibling != NULL){
-//        free_tree(root->rightSibling);
-//    }
-//    free(root);
-//}
-
 TREE parseStart() {
     TREE parseTree = E();
     if (lookahead('\0')) {
         return parseTree;
     } else {
-//        free_tree(parseTree);
         return NULL;
     }
 }
@@ -58,11 +47,6 @@ void printTree(TREE tree, int depth) {
         printTree(tree->rightSibling, depth);
     }
 }
-
-//int main() {
-//    parseTree = parse("()()"); /* in practice, a string of terminals would be read from input */
-//    printf("%p\n", parseTree); /* you need to pretty-print the parse tree */
-//}
 
 TREE makeNode0(char *x) {
     TREE root;
@@ -112,7 +96,7 @@ TREE B() {
     }
 }
 
-TREE ST() { //TODO
+TREE ST() {
     if (!(lookahead('0') || lookahead('1'))) {//production epsilon
         return makeNode1("ST", makeNode0("e"));
     } else {//production1

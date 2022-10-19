@@ -16,7 +16,7 @@ extern TREE makeNode3(char* x, TREE t1, TREE t2, TREE t3);
 extern TREE makeNode4(char* x, TREE t1, TREE t2, TREE t3, TREE t4);
 extern TREE parseStart();
 extern void printTree(TREE tree1,int depth);
-//extern void free_tree(TREE parseTree);
+
 extern TREE E();
 extern TREE ET();
 extern TREE T();

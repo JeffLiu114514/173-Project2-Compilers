@@ -8,7 +8,7 @@
 
 TABLE newTable() {
     TABLE table = (TABLE) malloc(sizeof(table));
-    strcpy(table->alphabet, "|&~(01)\0");
+    strcpy(table->alphabet, "|&~(01)");
 
     table->blocks = (int **) malloc(8 * sizeof(int *));
     for (int i = 0; i < 8; i++) {
@@ -75,6 +75,8 @@ char isTerminal(TREE node) {
         return '0';
     }else if (strcmp(c, "1") == 0){
         return '1';
+    }else if (strcmp(c, "e") == 0) {
+        return 'e';
     }
     return 0;
 }
@@ -101,41 +103,74 @@ int findRow(TREE node) {
     return -1;
 }
 
+int findIndex(TABLE table, char c, int row) {
+    int column = 0;
+    for (int i = 0; i < sizeof((*table).alphabet); i++) {
+        if (c == (*table).alphabet[i]) {
+            column = i;
+            break;
+        }
+    }
+    return (*table).blocks[row][column];
+}
+
 TREE parse(char *input, TABLE table) {
     STACK stack = constructStack(strlen(input) * 10);
     TREE temp;
     int rowNum;
     char currentChar;
+
+//    push start symbol
+//    while stack not empty {
+//            Y = pop stack
+//            if Y is a terminal {
+//                match and consume it, else fail
+//            } else {
+//                // Y is a non-terminal
+//                select production for Y using lookahead
+//                push RHS of production onto stack
+//            }
+//    }
     TREE first = makeNode0("E");
     push(stack, first);
-
-//    int currentLoop = 0;
-//    bool invalid = false;
-//    while (!lookahead('\0')) {
-//        TREE currentNode = pop(stack);
-//        int nextProduction = findIndex(table, lookahead());
-//    }
     while (!isEmpty(stack)) {
         temp = pop(stack);
+//        printf("%s\n", temp->label);
         if (isTerminal(temp)) {
-            if (!match(isTerminal(temp))) return FAILED;
+//            printf("%s is terminal\n", temp->label);
+            if (isTerminal(temp) == 'e') continue;
+            if (!match(isTerminal(temp))) {
+//                printf("terminal not matched\n");
+                return FAILED;
+            }
         }
         else {
             currentChar = *nextTerminal;
             rowNum = findRow(temp);
-            if (rowNum == -1 || currentChar == '\0') return FAILED;
+            if (rowNum == -1) {
+//                printf("row col failed\n");
+                return FAILED;
+            }
             else {
-                int nextProduction = findIndex(table, currentChar, rowNum);
-                buildStack(nextProduction, stack, currentChar, temp);
+                if (lookahead('\0')) { //special case: when string reaches end but stack is not empty
+//                    printf("Input end detected. Inserted eps\n");
+                    TREE eps = makeNode0("e");
+                    temp->leftmostChild = eps;
+                    push(stack, eps);
+                }
+                else {
+                    int nextProduction = findIndex(table, currentChar, rowNum);
+//                    printf("Current char is %c \n", currentChar);
+//                    printf("%d\n", nextProduction);
+                    buildStack(nextProduction, stack, currentChar, temp);
+                }
+
             }
         }
     }
-
-
     if (lookahead('\0')) {
         return first;
     } else {
-//        free_tree(parseTree);
         return NULL;
     }
 }
@@ -182,8 +217,8 @@ void buildStack(int production, STACK stack, char input, TREE tree) {
         TREE f = makeNode0("F");
         tree->leftmostChild = negate;
         negate->rightSibling = f;
-        push(stack, negate);
         push(stack, f);
+        push(stack, negate);
     } else if (production == 7) { //F -> ( E )
         TREE leftP = makeNode0("(");
         TREE e = makeNode0("E");
@@ -227,13 +262,4 @@ void buildStack(int production, STACK stack, char input, TREE tree) {
 
 }
 
-int findIndex(TABLE table, char c, int row) {
-    int column = 0;
-    for (int i = 0; i < sizeof((*table).alphabet); i++) {
-        if (c == (*table).alphabet[i]) {
-            column = i;
-            break;
-        }
-    }
-    return (*table).blocks[row][column];
-}
+

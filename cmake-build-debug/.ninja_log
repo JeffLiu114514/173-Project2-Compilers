@@ -1,4 +1,18 @@
 # ninja log v5
 3	89	6877608242854726	CMakeFiles/173Proj2.dir/main.c.obj	dad542b867e10dfd
 93	230	6877570981288999	173Proj2.exe	1bcaa0daac0265f2
-0	124	6878223410748492	build.ninja	8f078149acfc9b9f
+0	124	6878372147237830	build.ninja	8f078149acfc9b9f
+1	89	6878372256902562	CMakeFiles/173Proj2.dir/main.c.obj	dad542b867e10dfd
+4	98	6878372256992316	CMakeFiles/173Proj2.dir/Recursive.c.obj	a734e254186010aa
+9	109	6878372257112282	CMakeFiles/173Proj2.dir/table.c.obj	fbb2d5d923ac5d7d
+2	76	6878448688632454	CMakeFiles/173Proj2.dir/stack.c.obj	4303c27d15d2e941
+6	100	6878450793681163	CMakeFiles/173Proj2.dir/stack.c.obj	4303c27d15d2e941
+8	122	6878450793895410	CMakeFiles/173Proj2.dir/Recursive.c.obj	a734e254186010aa
+6	95	6878451003262106	CMakeFiles/173Proj2.dir/stack.c.obj	4303c27d15d2e941
+2	98	6878451003292022	CMakeFiles/173Proj2.dir/main.c.obj	dad542b867e10dfd
+8	104	6878451003371809	CMakeFiles/173Proj2.dir/Recursive.c.obj	a734e254186010aa
+12	113	6878451003461568	CMakeFiles/173Proj2.dir/table.c.obj	fbb2d5d923ac5d7d
+8	92	6878498391813118	CMakeFiles/173Proj2.dir/stack.c.obj	4303c27d15d2e941
+2	95	6878498391843038	CMakeFiles/173Proj2.dir/main.c.obj	dad542b867e10dfd
+5	107	6878498391972695	CMakeFiles/173Proj2.dir/Recursive.c.obj	a734e254186010aa
+11	112	6878498392024813	CMakeFiles/173Proj2.dir/table.c.obj	fbb2d5d923ac5d7d

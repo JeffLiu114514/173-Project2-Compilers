@@ -6,4 +6,4 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Werror)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
-add_executable(173Proj2 main.c Recursive.c)
+add_executable(173Proj2 main.c Recursive.c Recursive.h stack.c stack.h table.c table.h)

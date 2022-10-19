@@ -3,9 +3,9 @@
 
 STACK constructStack(unsigned size){
     STACK stack = (STACK)malloc(sizeof(STACK));
+    stack->size = size;
     stack->content = (TREE*)malloc(stack->size * sizeof(TREE));
     stack->top = -1;
-    stack->size = size;
     return stack;
 }
 
